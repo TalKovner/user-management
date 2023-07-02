@@ -1,12 +1,11 @@
-function Users() {
+import UserCard from "./UserCard";
+
+function Users({ users }) {
   return (
     <div>
-      ID: {} <br></br>
-      Name: <input type="text"></input> <br></br>
-      Email: <input type="text"></input> <br></br>
-      <button>Other Data</button>
-      <button>Update</button>
-      <button>Delete</button>
+      {users.map((user) => {
+        return <UserCard user={user} key={user.id} />;
+      })}
     </div>
   );
 }
