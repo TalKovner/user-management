@@ -33,10 +33,20 @@ function App() {
     todosData();
   }, []);
 
+  const isUserComplete = (userId) => {
+    const userTodos = todos.filter((todo) => {
+      return userId === todo.userId;
+    });
+
+    return userTodos.every((todo) => {
+      return todo.completed;
+    });
+  };
+
   return (
     <div className="App">
       <Header />
-      <Users users={users}/>
+      <Users users={users} isUserComplete={isUserComplete} />
     </div>
   );
 }

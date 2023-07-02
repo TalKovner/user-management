@@ -1,6 +1,13 @@
 .userCard {
-    border: 1px solid black;
     width: 275px;
     margin: 10px 0 10px 0;
     padding: 10px 0;
+}
+
+.greenFrame {
+    border: 1px solid green;
+}
+
+.redFrame {
+    border: 1px solid red;
 }
