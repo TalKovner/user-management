@@ -1,16 +1,22 @@
 .userCard {
-    width: 275px;
-    margin: 10px 0 10px 0;
-    padding: 10px 0;
+  width: 275px;
+  margin: 10px 0 10px 0;
+  padding: 10px 0;
 }
 
 .greenFrame {
-    border: 1px solid green;
+  border: 1px solid green;
 }
 
 .redFrame {
-    border: 1px solid red;
+  border: 1px solid red;
+}
+
+.blackFrame {
+  border: 1px solid black;
 }
 .otherData {
-    margin: 31px 183px 0 0;
+  width: 248px;
+  margin: 12px auto;
+  padding: 14px 6px;
 }

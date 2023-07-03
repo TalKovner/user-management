@@ -14,13 +14,13 @@ function UserCard({ user, isCompleted }) {
       <br></br>
       <button
         onMouseEnter={() => setIsOtherData(true)}
-        onMouseLeave={() => setIsOtherData(false)}
+        // onMouseLeave={() => setIsOtherData(false)}
       >
         Other Data
       </button>
       <button>Update</button>
       <button>Delete</button>
-      {isOtherData && <OtherData address={user.address} />}
+      {isOtherData && <OtherData address={user.address} close={() => setIsOtherData(false)}/>}
     </div>
   );
 }

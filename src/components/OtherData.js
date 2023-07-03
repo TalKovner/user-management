@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "../style/UserCard.css";
 
-function OtherData({ address }) {
+function OtherData({ address, close }) {
   return (
-    <div>
+    <div onMouseLeave={close} className="blackFrame otherData">
       street: <input type="text" value={address.street} onChange={() => {}} />
       <br></br>
       city: <input type="text" value={address.city} onChange={() => {}} />
