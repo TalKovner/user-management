@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "../style/UserCard.css";
 
 function OtherData({ address, close }) {

@@ -14,7 +14,6 @@ function UserCard({ user, isCompleted }) {
       <br></br>
       <button
         onMouseEnter={() => setIsOtherData(true)}
-        // onMouseLeave={() => setIsOtherData(false)}
       >
         Other Data
       </button>
