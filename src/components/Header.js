@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Header() {
+function Header({search}) {
   const [name, setName] = useState();
+  
+  useEffect(()=> {
+    search(name)
+  }, [name])
 
   return (
     <div>
-      search{" "}
+      search
       <input
         type="text"
         value={name}

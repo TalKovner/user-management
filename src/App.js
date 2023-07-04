@@ -8,11 +8,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [todos, setTodos] = useState([]);
+  const [searchUsers, setSearchUsers] = useState([]);
 
   useEffect(() => {
     async function usersData() {
       const users = await getUsers();
       setUsers(users);
+      setSearchUsers(users);
     }
     usersData();
   }, []);
@@ -43,10 +45,20 @@ function App() {
     });
   };
 
+  const search = (searchWord) => {
+    const searchResult = users.filter((user) => {
+      if (user.name.toLowerCase().includes(searchWord) || user.email.toLowerCase().includes(searchWord)) {
+        return true;
+      }
+      return false;
+    });
+    setSearchUsers(searchResult);
+  };
+
   return (
     <div className="App">
-      <Header />
-      <Users users={users} isUserComplete={isUserComplete} />
+      <Header search={search} />
+      <Users users={searchUsers} isUserComplete={isUserComplete} />
     </div>
   );
 }
