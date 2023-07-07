@@ -2,7 +2,7 @@ import "../style/UserCard.css";
 
 function OtherData({ address, close }) {
   return (
-    <div onMouseLeave={close} className="blackFrame otherData">
+    <div onMouseLeave={close} className="blackFrame otherData animate__animated animate__fadeIn">
       street: <input type="text" value={address.street} onChange={() => {}} />
       <br></br>
       city: <input type="text" value={address.city} onChange={() => {}} />
