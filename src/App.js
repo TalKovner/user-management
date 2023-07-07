@@ -5,6 +5,7 @@ import Users from "./components/Users";
 import { getPosts, getTodos, getUsers } from "./utils";
 import Todos from "./components/Todos";
 import 'animate.css';
+import Posts from "./components/Posts";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -13,6 +14,7 @@ function App() {
 
   const [searchUsers, setSearchUsers] = useState([]);
   const [userTodos, setUserTodos] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
     async function usersData() {
@@ -68,6 +70,13 @@ function App() {
     });
     setUserTodos(userTodos);
   };
+  
+  const getUserPosts = (userId) => {
+    const userPosts = posts.filter((post) => {
+      return post.userId === userId;
+    });
+    setUserPosts(userPosts);
+  };
 
   return (
     <div className="App">
@@ -77,8 +86,10 @@ function App() {
           users={searchUsers}
           isUserComplete={isUserComplete}
           getUserTodos={getUserTodos}
+          getUserPosts={getUserPosts}
         />
-        {userTodos.length && <Todos users={users} todos={userTodos} />}
+        {userTodos.length && <Todos todos={userTodos} />}
+        {userPosts.length && <Posts posts={userPosts} />}
       </div>
     </div>
   );

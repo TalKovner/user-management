@@ -2,15 +2,17 @@ import { useState } from "react";
 import "../style/UserCard.css";
 import OtherData from "./OtherData";
 
-function UserCard({ user, isCompleted, getUserTodos }) {
+function UserCard({ user, isCompleted, getUserTodos, getUserPosts }) {
   const [isOtherData, setIsOtherData] = useState(false);
   const [orangeRegion, setOrangeRegion] = useState(false);
 
   const clickId = () => {
     if (orangeRegion) {
-      getUserTodos();
+      getUserTodos()
+      getUserPosts()
     } else {
-      getUserTodos(user.id);
+      getUserTodos(user.id)
+      getUserPosts(user.id)
     }
     setOrangeRegion(!orangeRegion);
   };

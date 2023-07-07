@@ -3,8 +3,8 @@ import Todo from "./Todo";
 
 function Todos({ todos }) {
   return (
-    <div className="blackFrameTodo animate__animated animate__fadeIn">
-      <span>Todos- User {1} </span>
+    <div className="blackFrameTodo animate__animated animate__fadeIn content">
+      <span>Todos- User {todos[0].userId} </span>
       <button onClick={() => {}}>Add</button>
 
       {todos.map((todo) => {
