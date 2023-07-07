@@ -20,3 +20,11 @@
   margin: 12px auto;
   padding: 14px 6px;
 }
+
+.colorRegion {
+  background-color: rgb(240, 205, 141)
+}
+
+.cursor {
+  cursor: pointer
+}

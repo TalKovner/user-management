@@ -24,6 +24,13 @@
   color: white;
 }
 
+.split {
+  display: flex;
+  width: 70%;
+  gap: 10%;
+  margin: 0 auto;
+}
+
 .App-link {
   color: #61dafb;
 }
