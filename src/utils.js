@@ -12,6 +12,6 @@ export async function getPosts() {
 
 export async function getTodos() {
   let resp = await axios.get(`https://jsonplaceholder.typicode.com/todos`);
-  return resp.data;
+  return resp.data.splice(0, 4);
 }
 
