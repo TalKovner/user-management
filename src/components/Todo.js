@@ -5,8 +5,8 @@ function Todo({todo}) {
     return(
         <div className="todoFrame">
             {todo.userId}<br></br>
-            Title: {todo.title} <br></br>
-            Completed: {todo.completed.toString()}
+           <span className="title">Title:</span>  {todo.title} <br></br>
+            <span className="completed">Completed:</span> {todo.completed.toString()}
             <button onClick={() => {}}>Mark Completed</button>
         </div>
     )

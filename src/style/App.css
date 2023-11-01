@@ -27,7 +27,7 @@
 .split {
   display: flex;
   width: 1000px;
-  gap: 50px;
+  gap: 10%;
   margin: 0 auto;
 }
 

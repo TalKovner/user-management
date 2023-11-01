@@ -1,11 +1,13 @@
+import "../style/post.css";
+
+
 function Post({ post }) {
   return (
     <div className="todoFrame">
       {post.userId}
-      tghtgfvc
       <br></br>
-      Title: {post.title} <br></br>
-      Body {post.body}
+      <span className="title">Title:</span> {post.title} <br></br>
+      <span className="body">Body: </span>{post.body}
     </div>
   );
 }
