@@ -4,8 +4,9 @@ import Header from "./components/Header";
 import Users from "./components/Users";
 import { getPosts, getTodos, getUsers } from "./utils";
 import Todos from "./components/Todos";
-import 'animate.css';
+import "animate.css";
 import Posts from "./components/Posts";
+import { remove } from "lodash";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -70,7 +71,21 @@ function App() {
     });
     setUserTodos(userTodos);
   };
-  
+
+  const updateUser = (userId, data) => {
+    let user = users.find((user) => {
+      return user.id === userId;
+    });
+
+    user = { ...user, ...data };
+    const duplicateUsers = [...users];
+    remove(duplicateUsers, (user) => {
+      return user.id === userId;
+    });
+
+    setUsers([...duplicateUsers, user]);
+  };
+
   const getUserPosts = (userId) => {
     const userPosts = posts.filter((post) => {
       return post.userId === userId;
@@ -87,6 +102,7 @@ function App() {
           isUserComplete={isUserComplete}
           getUserTodos={getUserTodos}
           getUserPosts={getUserPosts}
+          updateUser={updateUser}
         />
         {userTodos.length && <Todos todos={userTodos} />}
         {userPosts.length && <Posts posts={userPosts} />}

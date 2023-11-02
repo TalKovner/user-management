@@ -2,19 +2,24 @@ import { useState } from "react";
 import "../style/UserCard.css";
 import OtherData from "./OtherData";
 
-function UserCard({ user, isCompleted, getUserTodos, getUserPosts }) {
+function UserCard({ user, isCompleted, getUserTodos, getUserPosts, update }) {
   const [isOtherData, setIsOtherData] = useState(false);
   const [orangeRegion, setOrangeRegion] = useState(false);
+  const [userData, setUserData] = useState(user);
 
   const clickId = () => {
     if (orangeRegion) {
-      getUserTodos()
-      getUserPosts()
+      getUserTodos();
+      getUserPosts();
     } else {
-      getUserTodos(user.id)
-      getUserPosts(user.id)
+      getUserTodos(user.id);
+      getUserPosts(user.id);
     }
     setOrangeRegion(!orangeRegion);
+  };
+
+  const updateAddress = (newAddress) => {
+    setUserData({ ...userData, address: newAddress });
   };
 
   return (
@@ -23,16 +28,29 @@ function UserCard({ user, isCompleted, getUserTodos, getUserPosts }) {
         orangeRegion ? "colorRegion" : ""
       }`}
     >
-      <span onClick={clickId} className="cursor">ID:</span> {user.id} <br></br>
-      Name: <input type="text" value={user.name} onChange={() => {}} />
+      <span onClick={clickId} className="cursor">
+        ID:
+      </span>{" "}
+      {user.id} <br></br>
+      Name:{" "}
+      <input
+        type="text"
+        value={userData.name}
+        onChange={(e) => setUserData({ ...userData, name: e.target.value })}
+      />
       <br></br>
-      Email: <input type="text" value={user.email} onChange={() => {}} />
+      Email:{" "}
+      <input
+        type="text"
+        value={userData.email}
+        onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+      />
       <br></br>
       <button onMouseEnter={() => setIsOtherData(true)}>Other Data</button>
-      <button>Update</button>
+      <button onClick={() => update(user.id, userData)}>Update</button>
       <button>Delete</button>
       {isOtherData && (
-        <OtherData address={user.address} close={() => setIsOtherData(false)} />
+        <OtherData address={userData.address} update={updateAddress} close={() => setIsOtherData(false)} />
       )}
     </div>
   );
