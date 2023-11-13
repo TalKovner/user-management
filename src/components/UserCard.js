@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../style/UserCard.css";
 import OtherData from "./OtherData";
 
-function UserCard({ user, isCompleted, getUserTodos, getUserPosts, update }) {
+function UserCard({ user, isCompleted, getUserTodos, getUserPosts, update, setCurrentUser }) {
   const [isOtherData, setIsOtherData] = useState(false);
   const [orangeRegion, setOrangeRegion] = useState(false);
   const [userData, setUserData] = useState(user);
@@ -14,6 +14,7 @@ function UserCard({ user, isCompleted, getUserTodos, getUserPosts, update }) {
     } else {
       getUserTodos(user.id);
       getUserPosts(user.id);
+      setCurrentUser(user.id)
     }
     setOrangeRegion(!orangeRegion);
   };

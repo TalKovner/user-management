@@ -17,6 +17,8 @@ function App() {
   const [userTodos, setUserTodos] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
 
+  const [selectedUserId, setSelectedUserId] = useState()
+
   useEffect(() => {
     async function usersData() {
       const users = await getUsers();
@@ -105,6 +107,16 @@ function App() {
     setUserPosts(userPosts);
   };
 
+  const createTodo = (userId, title) => {
+    const todo = {
+      userId,
+      title,
+      completed: false,
+      id: todos.length + 1,
+    };
+    setTodos([...todos, todo])
+  };
+
   return (
     <div className="App">
       <Header search={search} />
@@ -115,9 +127,10 @@ function App() {
           getUserTodos={getUserTodos}
           getUserPosts={getUserPosts}
           updateUser={updateUser}
+          setCurrentUser={setSelectedUserId}
         />
         {userTodos.length && (
-          <Todos todos={userTodos} markComplete={markCompleted} />
+          <Todos todos={userTodos} markComplete={markCompleted} createTodo={createTodo} selectedUserId={selectedUserId} />
         )}
         {userPosts.length && <Posts posts={userPosts} />}
       </div>

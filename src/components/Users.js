@@ -6,6 +6,7 @@ function Users({
   getUserTodos,
   getUserPosts,
   updateUser,
+  setCurrentUser,
 }) {
   return (
     <div>
@@ -18,6 +19,7 @@ function Users({
             getUserPosts={getUserPosts}
             key={user.id}
             update={updateUser}
+            setCurrentUser={setCurrentUser}
           />
         );
       })}
