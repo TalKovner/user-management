@@ -86,6 +86,18 @@ function App() {
     setUsers([...duplicateUsers, user]);
   };
 
+  const markCompleted = (todoId) => {
+    let todo = todos.find((todo) => {
+      return todo.id === todoId;
+    });
+    todo.completed = true;
+    const duplicateTodos = [...todos];
+    remove(duplicateTodos, (todo) => {
+      return todo.id === todoId;
+    });
+
+    setTodos([...duplicateTodos, todo]);
+  };
   const getUserPosts = (userId) => {
     const userPosts = posts.filter((post) => {
       return post.userId === userId;
@@ -104,7 +116,9 @@ function App() {
           getUserPosts={getUserPosts}
           updateUser={updateUser}
         />
-        {userTodos.length && <Todos todos={userTodos} />}
+        {userTodos.length && (
+          <Todos todos={userTodos} markComplete={markCompleted} />
+        )}
         {userPosts.length && <Posts posts={userPosts} />}
       </div>
     </div>
