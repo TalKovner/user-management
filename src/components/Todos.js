@@ -10,7 +10,7 @@ function Todos({ todos, markComplete, createTodo, selectedUserId }) {
     setShowTodos(true);
   };
 
-  const todoList = (
+  return showTodos ? (
     <div className="blackFrameTodo animate__animated animate__fadeIn content">
       <span>Todos- User {todos[0].userId} </span>
       <button
@@ -22,11 +22,16 @@ function Todos({ todos, markComplete, createTodo, selectedUserId }) {
       </button>
 
       {todos.map((todo) => {
-        return <Todo todo={todo} key={todo.id} markComplete={markComplete}/>;
+        return <Todo todo={todo} key={todo.id} markComplete={markComplete} />;
       })}
     </div>
+  ) : (
+    <AddTodo
+      closeAddModal={closeAddModal}
+      createTodo={createTodo}
+      selectedUserId={selectedUserId}
+    />
   );
-  return showTodos ? todoList : <AddTodo closeAddModal={closeAddModal} createTodo={createTodo} selectedUserId={selectedUserId}/>;
 }
 
 export default Todos;

@@ -1,0 +1,24 @@
+.blackFramePost {
+  border: 1px solid black;
+  margin: 10px 0 10px 0;
+  padding: 10px 0;
+}
+.addPost {
+  height: 80px;
+}
+
+.postFrame {
+  border: 1px solid purple;
+  padding: 9px;
+  margin: 5px;
+}
+
+.title {
+  text-decoration: underline;
+  text-decoration-color: lightblue;
+}
+
+.completed {
+  text-decoration: underline;
+  text-decoration-color: lightblue;
+}

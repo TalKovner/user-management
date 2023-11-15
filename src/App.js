@@ -117,6 +117,16 @@ function App() {
     setTodos([...todos, todo])
   };
 
+  const createPost = (userId, title, body) => {
+    const post = {
+      userId,
+      title,
+      body,
+      id: posts.length + 1,
+    };
+    setPosts([...posts, post])
+  };
+
   return (
     <div className="App">
       <Header search={search} />
@@ -132,7 +142,7 @@ function App() {
         {userTodos.length && (
           <Todos todos={userTodos} markComplete={markCompleted} createTodo={createTodo} selectedUserId={selectedUserId} />
         )}
-        {userPosts.length && <Posts posts={userPosts} />}
+        {userPosts.length && <Posts posts={userPosts} createPost={createPost} selectedUserId={selectedUserId}/>}
       </div>
     </div>
   );
